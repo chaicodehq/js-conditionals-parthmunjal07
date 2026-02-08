@@ -32,4 +32,213 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
+  if (size == "small"){
+    let price = 3.00
+    if (type == "regular"){
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price;
+    } 
+    else if (type == "latte") {
+      price += 1.00
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else if (type == "cappuccino") {
+      price += 1.50
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else if (type == "mocha") {
+      price += 2.00
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else {
+      return -1;
+    }
+  }
+  else if (size == "medium") {
+    let price = 4.00
+    if (type == "regular") {
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price;
+    }
+    else if (type == "latte") {
+      price += 1.00
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else if (type == "cappuccino") {
+      price += 1.50
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else if (type == "mocha") {
+      price += 2.00
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else {
+      return -1;
+    }
+  }
+  else if (size == "large") {
+    let price = 5.00
+    if (type == "regular") {
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price;
+    }
+    else if (type == "latte") {
+      price += 1.00
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else if (type == "cappuccino") {
+      price += 1.50
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else if (type == "mocha") {
+      price += 2.00
+      if (extras.whippedCream && extras.extraShot) {
+        price += 1.25
+      }
+      else if (extras.whippedCream) {
+        price += 0.50
+      }
+      else if (extras.extraShot) {
+        price += 0.75
+      }
+      else {
+        return price;
+      }
+      return price
+    }
+    else {
+      return -1;
+    }
+  } else {
+    return -1;
+  }
 }
