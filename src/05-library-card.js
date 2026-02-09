@@ -1,56 +1,50 @@
 /**
- * 📦 ShopSwift Shipping Calculator
+ * 📚 Maple Town Library
  *
- * ShopSwift is a growing online store. They've hired you to build their
- * shipping cost calculator. The cost depends on the package weight,
- * where it's going, and the order total.
+ * The librarian at Maple Town Public Library is tired of manually checking
+ * whether members can borrow books. She asks you to automate it!
  *
- * Domestic Shipping (country === "US"):
- *   - Weight up to 1 kg:   $5
- *   - Weight up to 5 kg:   $10
- *   - Weight over 5 kg:    $15
+ * A member can borrow books ONLY if ALL of these are true:
+ *   1. They are at least 6 years old
+ *   2. They have a valid library card (hasValidCard is true)
+ *   3. They have zero overdue books
  *
- * International Shipping (any other country):
- *   - Weight up to 1 kg:   $15
- *   - Weight up to 5 kg:   $25
- *   - Weight over 5 kg:    $40
+ * Return an object with two properties:
+ *   - allowed: boolean (true if they can borrow, false otherwise)
+ *   - message: string (a descriptive message)
  *
- * Free Shipping:
- *   - Domestic orders over $50 get FREE shipping (return 0)
- *   - International orders over $100 get FREE shipping (return 0)
+ * Check conditions in this order and return the FIRST failure:
+ *   - Age < 6:
+ *     { allowed: false, message: "Too young - must be at least 6 years old" }
  *
- * Rules:
- *   - If weight is 0 or negative, return -1
- *   - If orderTotal is negative, return -1
+ *   - No valid card:
+ *     { allowed: false, message: "Invalid library card - please renew at the front desk" }
  *
- * @param {number} weight - Package weight in kilograms
- * @param {string} country - Destination country code (e.g., "US", "UK", "IN")
- * @param {number} orderTotal - Total order amount in dollars
- * @returns {number} Shipping cost, 0 for free shipping, or -1 for invalid input
+ *   - Has overdue books:
+ *     { allowed: false, message: "Please return your X overdue book(s) first" }
+ *     (replace X with the actual number of overdue books)
+ *
+ *   - All conditions met:
+ *     { allowed: true, message: "You may borrow up to 3 books" }
+ *
+ * @param {number} memberAge - The member's age
+ * @param {boolean} hasValidCard - Whether they have a valid library card
+ * @param {number} overdueBooks - Number of overdue books
+ * @returns {{ allowed: boolean, message: string }}
  */
-export function calculateShipping(weight, country, orderTotal) {
+export function canBorrowBook(memberAge, hasValidCard, overdueBooks) {
   // Your code here
-  if (country === "US") {
-    if (orderTotal > 50) return 0;
-    else if (orderTotal > 0 && orderTotal <= 50) {
-      if (weight > 0 && weight <= 1) return 5;
-      else if (weight > 1 && weight <= 5) return 10;
-      else if (weight > 5) return 15;
-      else return -1;
-    }
-    else {
-      return -1;
+  if (memberAge >= 6) {
+    if (hasValidCard) {
+      if (overdueBooks > 0) {
+        return { allowed: false, message: `Please return your ${overdueBooks} overdue book(s) first` }
+      } else {
+        return { allowed: true, message: "You may borrow up to 3 books" }
+      }
+    } else {
+      return { allowed: false, message: "Invalid library card - please renew at the front desk" }
     }
   } else {
-    if (orderTotal > 100) return 0;
-    else if (orderTotal > 0 && orderTotal <= 100) {
-      if (weight > 0 && weight <= 1) return 15;
-      else if (weight > 1 && weight <= 5) return 25;
-      else if (weight > 5) return 40;
-      else return -1;
-    }
-    else {
-      return -1;
-    }
+    return { allowed: false, message: "Too young - must be at least 6 years old" }
   }
 }
